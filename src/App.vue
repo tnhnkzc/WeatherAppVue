@@ -1,10 +1,22 @@
 <template>
-  <div></div>
+  <Header title="Weather App" />
+  <Weather />
+  <Footer />
 </template>
 
 <script>
-require("dotenv").config();
-export default {};
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Weather from "./components/Weather";
+
+export default {
+  name: "App",
+  components: {
+    Header,
+    Footer,
+    Weather,
+  },
+};
 </script>
 
 <style scoped></style>
