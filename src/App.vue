@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-screen">
     <Header title="Weather App" />
     <Weather />
     <Footer />
