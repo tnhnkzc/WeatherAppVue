@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <h1>{{ title }}</h1>
+  <div class="flex justify-center">
+    <img class="w-1/3" src="../assets/weatherLogo.webp" alt="weather logo" />
+  </div>
+  <div class="text-center">
+    <h1 class="text-2xl">{{ title }}</h1>
   </div>
 </template>
 

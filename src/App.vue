@@ -1,7 +1,9 @@
 <template>
-  <Header title="Weather App" />
-  <Weather />
-  <Footer />
+  <div>
+    <Header title="Weather App" />
+    <Weather />
+    <Footer />
+  </div>
 </template>
 
 <script>

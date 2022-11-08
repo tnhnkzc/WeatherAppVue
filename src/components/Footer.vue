@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col items-center mt-8">
     Copyright &copy; 2022
     <a href="https://www.github.com/tnhnkzc">GitHub</a>
   </div>
