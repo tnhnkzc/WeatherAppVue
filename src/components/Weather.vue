@@ -99,6 +99,9 @@ export default {
 <template>
   <div class="flex items-center flex-col">
     <div class="mt-4 md:mt-4">
+      <p class="text-black text-lg md:text-2xl mb-8">
+        {{ dateBuilder() }}
+      </p>
       <input
         class="block w-full rounded-md border-gray-300 pl-2 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-md"
         type="text"
@@ -107,7 +110,7 @@ export default {
         placeholder="City Name"
       />
       <button
-        class="rounded-md hover:rounded-full bg-indigo-500 hover:bg-indigo-600 p-2 mt-2 ml-2 md:mt-2"
+        class="rounded-md hover:rounded-full bg-indigo-500 hover:bg-indigo-600 p-2 mt-8 ml-2 md:mt-8"
         @click="getWeather()"
       >
         Search
@@ -124,16 +127,16 @@ export default {
       v-if="weatherDescription"
     >
       <div
-        class="mt-2 mb-2 mr-2 ml-2 grid grid-cols-2 md:grid-rows-3 md:grid-flow-col gap-4 justify-center drop-shadow-lg ease-in duration-800"
+        class="mt-2 mb-2 mr-2 ml-2 grid grid-cols-3 md:grid-rows-3 md:grid-flow-col gap-4 justify-center drop-shadow-lg ease-in duration-800"
       >
         <div
-          class="flex justify-center items-center w-36 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg hover:scale-125 duration-300 hover:z-10"
+          class="flex justify-center items-center w-28 h-28 md:h-48 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg hover:scale-125 duration-300 hover:z-10"
         >
           <p class="text-black text-lg md:text-2xl">{{ cityName }}, {{ country }}</p>
         </div>
 
         <div
-          class="flex justify-center items-center w-36 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg hover:scale-125 duration-300 hover:z-10"
+          class="flex justify-center items-center w-28 h-28 md:h-48 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg hover:scale-125 duration-300 hover:z-10"
         >
           <p class="text-black text-lg md:text-2xl">
             {{ weatherDescription }}
@@ -141,13 +144,13 @@ export default {
         </div>
         <transition name="fade">
           <div
-            class="flex justify-center items-center w-36 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
+            class="flex justify-center items-center w-28 h-28 md:h-48 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
           >
             <img class="w-32 h-32 md:w-full md:h-full" :src="imageUrl" alt="" />
           </div>
         </transition>
         <div
-          class="flex items-center justify-center w-36 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
+          class="flex items-center justify-center w-28 h-28 md:h-48 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
         >
           <img class="w-8 md:w-12 mr-4" src="../assets/temperature.png" alt="" />
           <p class="text-black text-lg md:text-2xl">
@@ -155,7 +158,7 @@ export default {
           </p>
         </div>
         <div
-          class="flex justify-center items-center w-36 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
+          class="flex justify-center items-center w-28 h-28 md:h-48 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
         >
           <img class="w-8 md:w-12 mr-4" src="../assets/feelslike.png" alt="" />
           <p class="text-black text-lg md:text-2xl">
@@ -163,28 +166,28 @@ export default {
           </p>
         </div>
         <div
-          class="flex items-center justify-center w-36 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
+          class="flex items-center justify-center w-28 h-28 md:h-48 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
         >
           <img class="w-8 md:w-12 mr-4" src="../assets/humidity.png" alt="" />
           <p class="text-black text-lg md:text-2xl">{{ humidity }}</p>
         </div>
         <div
-          class="flex items-center justify-center w-36 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
+          class="flex items-center justify-center w-28 h-28 md:h-48 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
         >
           <img class="w-8 md:w-12 mr-4" src="../assets/tempMax.png" alt="" />
           <p class="text-black text-lg md:text-2xl">{{ tempMax }}</p>
         </div>
         <div
-          class="flex items-center justify-center w-36 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
+          class="flex items-center justify-center w-28 h-28 md:h-48 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
         >
           <img class="w-8 md:w-12 mr-4" src="../assets/tempMin.png" alt="" />
           <p class="text-black text-lg md:text-2xl">{{ tempMin }}</p>
         </div>
         <div
-          class="flex justify-center items-center w-36 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
+          class="flex justify-center items-center w-28 h-28 md:h-48 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
         >
           <img class="w-8 md:w-12 mr-4" src="../assets/wind-speed-icon.jpg" alt="" />
-          <p class="text-black text-lg md:text-2xl">
+          <p class="text-black text-sm md:text-2xl">
             {{ windSpeed }}
           </p>
         </div>
