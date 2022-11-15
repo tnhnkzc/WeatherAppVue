@@ -15,6 +15,7 @@ export default {
       cityName: "",
       tempMax: "",
       tempMin: "",
+      bgImage: "",
     };
   },
   methods: {
@@ -53,6 +54,9 @@ export default {
             // Max and Min Temp
             this.tempMax = Math.round(response.data.main.temp_max) + " °C";
             this.tempMin = Math.round(response.data.main.temp_min) + " °C";
+            if (response.data.weather[0].main === "Rain") {
+              this.bgImage = "'../assets/rain.jpg'";
+            }
           })
           .catch((error) => console.log(error));
       } else {
@@ -64,7 +68,11 @@ export default {
 
 <template>
   <div class="flex items-center flex-col">
-    <div id="mainContainer" class="flex flex-col items-center mt-8 md:w-1/2 min-h-min">
+    <div
+      id="mainContainer"
+      :style="`backgroundImage: url(${bgImage})`"
+      class="flex flex-col items-center mt-8 md:w-1/2 min-h-min"
+    >
       <div
         v-if="weatherDescription"
         class="mt-2 mb-2 mr-2 ml-2 grid grid-cols-2 md:grid-rows-3 md:grid-flow-col gap-4 justify-center drop-shadow-lg ease-in duration-800"
@@ -152,7 +160,6 @@ export default {
 <style scoped>
 .fade-enter-from {
   opacity: 0;
-  position: ;
 }
 .fade-enter-to {
   opacity: 1;
@@ -161,7 +168,7 @@ export default {
   transition: all 2s ease;
 }
 #mainContainer {
-  background-image: url(C:\Users\GEN-06\Desktop\Home\weatherApp\WeatherAppVue\src\assets\pexels-pixabay-159020.jpg);
+  background-image: url("../assets/temperature.png");
   background-size: 100%;
   background-repeat: no-repeat;
   border-radius: 10px;
@@ -169,7 +176,7 @@ export default {
 /* Media Query */
 @media screen and (max-width: 600px) {
   #mainContainer {
-    background-image: url(C:\Users\GEN-06\Desktop\Home\weatherApp\WeatherAppVue\src\assets\pexels-pixabay-159020.jpg);
+    /* background-image: url(C:\Users\GEN-06\Desktop\Home\weatherApp\WeatherAppVue\src\assets\foggy.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
