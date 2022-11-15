@@ -42,7 +42,6 @@ export default {
       let date = d.getDate();
       let month = months[d.getMonth()];
       let year = d.getFullYear();
-      console.log(day);
       return `${day} ${date} ${month} ${year} `;
     },
     async getWeather() {
@@ -80,13 +79,9 @@ export default {
             this.cityName = response.data.name;
             // Country Name
             this.country = response.data.sys.country;
-
             // Max and Min Temp
             this.tempMax = Math.round(response.data.main.temp_max) + " °C";
             this.tempMin = Math.round(response.data.main.temp_min) + " °C";
-            if (response.data.weather[0].main == "Rain") {
-              console.log(bgImage);
-            }
           })
           .catch((error) => console.log(error));
       } else {
@@ -99,7 +94,7 @@ export default {
 <template>
   <div class="flex items-center flex-col">
     <div class="mt-4 md:mt-4">
-      <p class="text-black text-lg md:text-2xl mb-8">
+      <p class="text-black font-bold text-lg md:text-2xl mb-8">
         {{ dateBuilder() }}
       </p>
       <input
@@ -132,13 +127,15 @@ export default {
         <div
           class="flex justify-center items-center w-28 h-28 md:h-48 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg hover:scale-125 duration-300 hover:z-10"
         >
-          <p class="text-black text-lg md:text-2xl">{{ cityName }}, {{ country }}</p>
+          <p class="text-black font-bold text-lg md:text-2xl font-bold">
+            {{ cityName }}, {{ country }}
+          </p>
         </div>
 
         <div
           class="flex justify-center items-center w-28 h-28 md:h-48 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg hover:scale-125 duration-300 hover:z-10"
         >
-          <p class="text-black text-lg md:text-2xl">
+          <p class="text-black font-bold text-lg md:text-2xl">
             {{ weatherDescription }}
           </p>
         </div>
@@ -153,7 +150,7 @@ export default {
           class="flex items-center justify-center w-28 h-28 md:h-48 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
         >
           <img class="w-8 md:w-12 mr-4" src="../assets/temperature.png" alt="" />
-          <p class="text-black text-lg md:text-2xl">
+          <p class="text-black font-bold text-lg md:text-2xl">
             {{ temp }}
           </p>
         </div>
@@ -161,7 +158,7 @@ export default {
           class="flex justify-center items-center w-28 h-28 md:h-48 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
         >
           <img class="w-8 md:w-12 mr-4" src="../assets/feelslike.png" alt="" />
-          <p class="text-black text-lg md:text-2xl">
+          <p class="text-black font-bold text-lg md:text-2xl">
             {{ feelsLike }}
           </p>
         </div>
@@ -169,25 +166,25 @@ export default {
           class="flex items-center justify-center w-28 h-28 md:h-48 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
         >
           <img class="w-8 md:w-12 mr-4" src="../assets/humidity.png" alt="" />
-          <p class="text-black text-lg md:text-2xl">{{ humidity }}</p>
+          <p class="text-black font-bold text-lg md:text-2xl">{{ humidity }}</p>
         </div>
         <div
           class="flex items-center justify-center w-28 h-28 md:h-48 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
         >
           <img class="w-8 md:w-12 mr-4" src="../assets/tempMax.png" alt="" />
-          <p class="text-black text-lg md:text-2xl">{{ tempMax }}</p>
+          <p class="text-black font-bold text-lg md:text-2xl">{{ tempMax }}</p>
         </div>
         <div
           class="flex items-center justify-center w-28 h-28 md:h-48 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
         >
           <img class="w-8 md:w-12 mr-4" src="../assets/tempMin.png" alt="" />
-          <p class="text-black text-lg md:text-2xl">{{ tempMin }}</p>
+          <p class="text-black font-bold text-lg md:text-2xl">{{ tempMin }}</p>
         </div>
         <div
           class="flex justify-center items-center w-28 h-28 md:h-48 md:w-48 border-1 rounded-md bg-slate-400/50 h-52 drop-shadow-lg ease-in hover:scale-125 duration-300 hover:z-10"
         >
           <img class="w-8 md:w-12 mr-4" src="../assets/wind-speed-icon.jpg" alt="" />
-          <p class="text-black text-sm md:text-2xl">
+          <p class="text-black font-bold text-sm md:text-2xl">
             {{ windSpeed }}
           </p>
         </div>
@@ -217,7 +214,6 @@ export default {
   background-size: 100%;
   background-repeat: no-repeat;
   border-radius: 10px;
-  opacity: 0.8;
 }
 /* Media Query */
 @media screen and (max-width: 600px) {
