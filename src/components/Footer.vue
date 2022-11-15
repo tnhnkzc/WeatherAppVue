@@ -1,5 +1,5 @@
 <template>
-  <footer class="bottom-0 left-0 fixed text-center w-screen">
+  <footer class="bottom-0 left-0 text-center w-screen mt-8">
     <div class="flex flex-col items-center">
       <span class="flex gap-2"
         >Based on data from
@@ -24,7 +24,6 @@ export default {
   methods: {
     async getYear() {
       this.year = new Date().getFullYear();
-      console.log(year);
     },
   },
   beforeMount() {

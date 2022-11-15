@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen">
+  <div>
     <Header title="Weather App" />
     <Weather />
     <Footer />
@@ -21,4 +21,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+body {
+  font-family: "Lato", sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+</style>
