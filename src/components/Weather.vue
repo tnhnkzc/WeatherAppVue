@@ -54,8 +54,8 @@ export default {
             // Max and Min Temp
             this.tempMax = Math.round(response.data.main.temp_max) + " °C";
             this.tempMin = Math.round(response.data.main.temp_min) + " °C";
-            if (response.data.weather[0].main === "Rain") {
-              this.bgImage = "'../assets/rain.jpg'";
+            if (response.data.weather[0].main == "Rain") {
+              this.bgImage = "../assets/rain.jpg";
             }
           })
           .catch((error) => console.log(error));
@@ -70,7 +70,7 @@ export default {
   <div class="flex items-center flex-col">
     <div
       id="mainContainer"
-      :style="`backgroundImage: url(${bgImage})`"
+      :style="'{ backgroundImage: url(' + bgImage + ') }'"
       class="flex flex-col items-center mt-8 md:w-1/2 min-h-min"
     >
       <div
@@ -168,7 +168,7 @@ export default {
   transition: all 2s ease;
 }
 #mainContainer {
-  background-image: url("../assets/temperature.png");
+  /* background-image: url("../assets/temperature.png"); */
   background-size: 100%;
   background-repeat: no-repeat;
   border-radius: 10px;

@@ -8,7 +8,7 @@
         </a>
       </span>
       Tunahan Kuzucu &copy; {{ year }}
-      <a href="https://www.github.com/tnhnkzc">GitHub</a>
+      <a href="https://www.github.com/tnhnkzc/WeatherAppVue">GitHub</a>
     </div>
   </footer>
 </template>
